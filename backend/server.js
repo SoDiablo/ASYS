@@ -74,6 +74,21 @@ app.post('/api/init-database', async (req, res) => {
   }
 });
 
+// Create admin user endpoint
+app.post('/api/create-admin', async (req, res) => {
+  try {
+    const { createAdminUser } = require('./scripts/createAdmin');
+    const result = await createAdminUser();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Admin creation failed', 
+      error: error.message 
+    });
+  }
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/public', publicRoutes);

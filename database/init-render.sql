@@ -155,11 +155,11 @@ INSERT INTO users (name, email, password_hash, role, phone, is_active)
 VALUES (
   'System Administrator',
   'admin@asys.com',
-  '$2b$10$rQJ5qVZ8qVZ8qVZ8qVZ8qeK8qVZ8qVZ8qVZ8qVZ8qVZ8qVZ8qVZ8q',
+  '$2b$10$YourHashWillBeGeneratedByBackend',
   'admin',
   '+1234567890',
   TRUE
-);
+) ON CONFLICT (email) DO NOTHING;
 
 -- Insert sample common areas
 INSERT INTO common_areas (name, capacity, max_hours, open_time, close_time, is_active)
