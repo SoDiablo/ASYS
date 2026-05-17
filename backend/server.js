@@ -40,9 +40,38 @@ app.use(sanitizeRequestBody);
 // Static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    message: 'ASYS Backend is running 🚀',
+    status: 'OK',
+    version: '1.0.0',
+    endpoints: {
+      health: '/health',
+      api: '/api',
+      initDatabase: 'POST /api/init-database'
+    }
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
+// Database initialization endpoint (one-time use)
+app.post('/api/init-database', async (req, res) => {
+  try {
+    const { initializeDatabase } = require('./scripts/initDatabase');
+    const result = await initializeDatabase();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Database initialization failed', 
+      error: error.message 
+    });
+  }
 });
 
 // API Routes
