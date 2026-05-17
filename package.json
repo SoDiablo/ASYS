@@ -11,7 +11,8 @@
     "build": "cd frontend && npm install && npm run build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "postinstall": "cd frontend && npm install"
+    "postinstall": "cd frontend && npm install",
+    "deploy": "npm run build && npm start"
   },
   "keywords": ["building-management", "smart-building", "apartment-management"],
   "author": "CodeForge Team",

@@ -40,18 +40,27 @@ app.use(sanitizeRequestBody);
 // Static files for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Serve frontend static files in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+}
+
 // Root endpoint
 app.get('/', (req, res) => {
-  res.json({
-    message: 'ASYS Backend is running 🚀',
-    status: 'OK',
-    version: '1.0.0',
-    endpoints: {
-      health: '/health',
-      api: '/api',
-      initDatabase: 'POST /api/init-database'
-    }
-  });
+  if (process.env.NODE_ENV === 'production') {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  } else {
+    res.json({
+      message: 'ASYS Backend is running 🚀',
+      status: 'OK',
+      version: '1.0.0',
+      endpoints: {
+        health: '/health',
+        api: '/api',
+        initDatabase: 'POST /api/init-database'
+      }
+    });
+  }
 });
 
 // Health check endpoint
@@ -102,14 +111,24 @@ app.use('/api/reports', reportRoutes);
 app.use('/api/common-areas', commonAreasRoutes);
 app.use('/api/settings', settingsRoutes);
 
-// 404 handler
-app.use((req, res) => {
-  res.status(404).json({
-    error: {
-      code: 'RESOURCE_NOT_FOUND',
-      message: 'The requested resource was not found'
-    }
-  });
+// 404 handler - must be after API routes but before error handler
+app.use((req, res, next) => {
+  // If it's an API request, return 404 JSON
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({
+      error: {
+        code: 'RESOURCE_NOT_FOUND',
+        message: 'The requested resource was not found'
+      }
+    });
+  }
+  
+  // For all other routes in production, serve the React app
+  if (process.env.NODE_ENV === 'production') {
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  } else {
+    next();
+  }
 });
 
 // Global error handler
