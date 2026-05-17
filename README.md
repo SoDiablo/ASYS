@@ -235,7 +235,10 @@ For issues and questions:
 - [ ] Multi-language support
 - [ ] Advanced reporting
 - [ ] Mobile-responsive improvements
+---
+## 💫 Full Ui View
 
+![ASYS Full View](./FullView.jpg)
 ---
 **Demo**: [Live Demo](https://asys-frontend.onrender.com)
 
