@@ -2,8 +2,6 @@
 
 A comprehensive full-stack web application for managing multi-story residential apartment complexes. Built with React.js, Node.js/Express.js, and PostgreSQL.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-
 ## 🌟 Features
 
 - **Multi-Role System**: Manager, Resident, and Security Guard roles
@@ -221,15 +219,6 @@ This is an educational project developed for Software Engineering Lab II course.
 
 MIT License - See LICENSE file for details
 
-## 👥 Team
-
-**CodeForge Team** - Kocaeli University of Health and Technology
-- Kusai Aksoy - Team Leader
-- Hashem Salem - Data Model
-- Namik Hasan - UML Diagrams
-- Rama Hasanatu - UI Design
-- Melih Kamil USLU - Documentation & UI Design
-
 ## 🆘 Support
 
 For issues and questions:
@@ -248,8 +237,5 @@ For issues and questions:
 - [ ] Mobile-responsive improvements
 
 ---
-
-**Built with ❤️ by CodeForge Team**
-
-**Demo**: [Live Demo](https://asys-frontend.onrender.com) (Coming soon)
+**Demo**: [Live Demo](https://asys-frontend.onrender.com)
 
