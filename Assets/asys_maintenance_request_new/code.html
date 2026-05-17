@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASYS | Maintenance Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeeeee",
+              "on-error-container": "#410002",
+              "on-background": "#1a1c1c",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-tint": "#5e5e5e",
+              "outline-variant": "#c6c6c6",
+              "surface": "#faf9f9",
+              "on-tertiary-fixed": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e8e8e8",
+              "on-surface-variant": "#474747",
+              "secondary-container": "#d4d4d4",
+              "tertiary": "#3a3c3c",
+              "primary-fixed-dim": "#474747",
+              "inverse-surface": "#2f3131",
+              "on-tertiary-container": "#ffffff",
+              "inverse-primary": "#c8c6c6",
+              "secondary": "#5d5e5f",
+              "on-secondary-container": "#1a1c1c",
+              "inverse-on-surface": "#f1f1f0",
+              "primary-fixed": "#5e5e5e",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c6c6c6",
+              "on-primary-fixed-variant": "#e4e2e2",
+              "on-secondary-fixed": "#1a1c1c",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#3a3c3c",
+              "on-primary-fixed": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "background": "#faf9f9",
+              "tertiary-fixed": "#5d5f5f",
+              "surface-container-low": "#f4f3f3",
+              "primary-container": "#3b3b3b",
+              "secondary-fixed-dim": "#ababab",
+              "surface-dim": "#dadada",
+              "surface-container-highest": "#e2e2e2",
+              "surface-bright": "#faf9f9",
+              "on-tertiary": "#e2e2e2",
+              "on-surface": "#1a1c1c",
+              "tertiary-fixed-dim": "#454747",
+              "primary": "#000000",
+              "on-primary": "#e4e2e2",
+              "outline": "#777777",
+              "tertiary-container": "#737575"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-neutral-900 w-full border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center h-16 px-8 w-full fixed top-0 z-50">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black tracking-tighter text-neutral-900 dark:text-white">ASYS</span>
+<div class="hidden md:flex gap-6 font-sans text-sm tracking-tight">
+<a class="text-neutral-500 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200 ease-in-out px-2 py-1" href="#">Dashboard</a>
+<a class="text-neutral-900 dark:text-white font-bold border-b-2 border-neutral-900 px-2 py-1" href="#">Maintenance</a>
+<a class="text-neutral-500 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200 ease-in-out px-2 py-1" href="#">Reservations</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-neutral-900 dark:text-neutral-50 p-2 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-neutral-900 dark:text-neutral-50 p-2 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors">account_circle</button>
+</div>
+</header>
+<!-- SideNavBar (Resident Portal Context) -->
+<aside class="fixed left-0 top-0 flex flex-col pt-20 pb-8 px-4 z-40 h-screen w-64 border-r border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 font-sans text-sm font-medium hidden md:flex">
+<div class="mb-8 px-4">
+<h2 class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mb-1">Resident Portal</h2>
+<p class="text-[10px] text-neutral-500">Site Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Payments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="engineering">engineering</span>
+<span>Maintenance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+<span>Reservations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+<span>Parking</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 pt-24 px-8 pb-16 min-h-screen bg-surface">
+<!-- Breadcrumb Rail -->
+<div class="flex items-center gap-2 mb-12 py-2 border-b border-surface-dim/20 text-[10px] tracking-widest uppercase font-bold text-on-surface-variant">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary">Maintenance</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Maintenance Form Section -->
+<section class="lg:col-span-5 space-y-10">
+<header>
+<h1 class="text-4xl font-black tracking-tight mb-2">New Request</h1>
+<p class="text-on-surface-variant text-sm">Submit a ticket for site maintenance or repairs.</p>
+</header>
+<form class="space-y-8 bg-surface-container-lowest p-8 shadow-sm">
+<!-- Category -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant block">Category</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 text-sm">
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>HVAC</option>
+<option>General Repair</option>
+<option>Landscaping</option>
+</select>
+</div>
+<!-- Description -->
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant block">Description</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all py-3 text-sm resize-none" placeholder="Describe the issue in detail..." rows="4"></textarea>
+</div>
+<!-- Image Upload -->
+<div class="space-y-4">
+<label class="text-xs font-bold uppercase tracking-wider text-on-surface-variant block">Supporting Media</label>
+<div class="group relative flex flex-col items-center justify-center w-full h-40 border border-dashed border-outline-variant/40 bg-surface-container-low hover:bg-surface-variant/20 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-3xl mb-2 text-outline">add_a_photo</span>
+<span class="text-xs text-on-surface-variant">Drag or click to upload photos</span>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-primary-container transition-all flex items-center justify-center gap-2" type="submit">
+                        Submit Request
+                        <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</form>
+</section>
+<!-- Maintenance List Section -->
+<section class="lg:col-span-7 space-y-10">
+<header class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h2 class="text-2xl font-black tracking-tight mb-1">Active Logs</h2>
+<p class="text-on-surface-variant text-sm">Track your ongoing and past tickets.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-3 py-1.5 text-[10px] font-bold uppercase border border-primary bg-primary text-on-primary">All</button>
+<button class="px-3 py-1.5 text-[10px] font-bold uppercase border border-outline-variant/30 text-on-surface-variant hover:border-primary">Pending</button>
+<button class="px-3 py-1.5 text-[10px] font-bold uppercase border border-outline-variant/30 text-on-surface-variant hover:border-primary">Done</button>
+</div>
+</header>
+<!-- Cards Grid/List -->
+<div class="space-y-4">
+<!-- Ticket 01 -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+<div class="w-full md:w-32 h-24 bg-surface-container flex-shrink-0">
+<img alt="Plumbing leak" class="w-full h-full object-cover grayscale opacity-80" data-alt="Close-up of a chrome bathroom faucet with visible water droplets and professional modern bathroom tiling background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGqz2DaCrycX1QAZTBtK3NlGGJ_OntcnzTsrbUdxrE-RuL0R6FuRrPxuqg1rWxrK0G0L4qDa6a4O8U92KrpkV_JVBZNJe9NRO_Nk1YJnKM_VRvFHgGJ2Eq9tzmIjY6IdZx9LDqkWE0AePPBnczBULR-OL0vzDHZg55qCrtaAA7h7uG95iUg9d6MJ8489L0lWeYdkxBoaxe-F0-kBvPz3udf-z4HGB3lyjj7y4i0xnxxR1P3XyDNgTIoGKwVLTLIqWBozMbEqfYjzw"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1 block">Log #4920 — Plumbing</span>
+<h3 class="font-bold text-lg leading-tight">Kitchen sink faucet leaking at base</h3>
+</div>
+<span class="px-2 py-1 text-[9px] font-black uppercase tracking-tighter bg-secondary-container text-on-secondary-container">Progress</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">Constant drip even when tightened. Water pooling on the counter. Requesting urgent repair to prevent cabinet damage.</p>
+<div class="pt-4 flex items-center gap-4 text-[10px] text-outline font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 12, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">chat_bubble</span> 3 Updates</span>
+</div>
+</div>
+</div>
+<!-- Ticket 02 -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow opacity-70">
+<div class="w-full md:w-32 h-24 bg-surface-container flex-shrink-0">
+<img alt="Electrical panel" class="w-full h-full object-cover grayscale opacity-80" data-alt="Interior view of a modern professional electrical fuse box with tidy wiring in grayscale lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0F9UVvwpJlLnS_hyYHvTgVd9S7btR5x6E53lKviTnF8_rjeGZG-mWYc7PFbjnvSHI0kJR2bXWW4wpOIjqoPLvB8WE2vj06t8SeoLYDghxqE10fNDK3rfcJ22NZNz4db4z5s2B2zyisYsEWBdOyg2Ft6ie_-udx04Cc9OG2sxsCh7_6rJysj2uKwoXDnD4FX4QU4-MCitKQye1xfSKVn4vaUjZkWqYjm1T5RSIwVOnxNng0OdDFbbcDYraNpJDmXdbGFQSevH6zxk"/>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1 block">Log #4881 — Electrical</span>
+<h3 class="font-bold text-lg leading-tight">Tripping circuit in living area</h3>
+</div>
+<span class="px-2 py-1 text-[9px] font-black uppercase tracking-tighter bg-surface-container-high text-on-surface">Done</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">The north wall outlet trips the breaker whenever the floor lamp is plugged in. Technician inspected on Tuesday.</p>
+<div class="pt-4 flex items-center gap-4 text-[10px] text-outline font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 08, 2023</span>
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-[14px]">verified</span> Resolved</span>
+</div>
+</div>
+</div>
+<!-- Ticket 03 -->
+<div class="bg-surface-container-lowest p-6 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow border-l-4 border-primary">
+<div class="w-full md:w-32 h-24 bg-surface-container flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-3xl">image_not_supported</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1 block">Log #4955 — HVAC</span>
+<h3 class="font-bold text-lg leading-tight">AC unit making high-pitched noise</h3>
+</div>
+<span class="px-2 py-1 text-[9px] font-black uppercase tracking-tighter bg-primary text-on-primary">Pending</span>
+</div>
+<p class="text-sm text-on-surface-variant line-clamp-2">Loud screeching sound when compressor starts. Unit still cooling but the noise is disruptive to sleep.</p>
+<div class="pt-4 flex items-center gap-4 text-[10px] text-outline font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">calendar_today</span> Oct 14, 2023</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">hourglass_empty</span> Awaiting Assignee</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Summary Card -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/10 text-center">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold mb-4">Urgent Issue?</p>
+<p class="text-sm mb-6 max-w-xs mx-auto">For after-hours structural or flood emergencies, please contact the site supervisor directly.</p>
+<a class="text-primary font-black text-lg underline decoration-2 underline-offset-4" href="#">+1 800 555 ASYS</a>
+</div>
+</section>
+</div>
+</main>
+<!-- FAB (Suppressed for this task-focused Maintenance Detail screen as per logic, but included as a small action button if needed on bottom mobile) -->
+<div class="md:hidden fixed bottom-6 right-6">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center">
+<span class="material-symbols-outlined" data-weight="fill">add</span>
+</button>
+</div>
+</body></html>

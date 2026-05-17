@@ -1,0 +1,36 @@
+# Render ignore file - files to exclude from deployment
+
+# Development files
+Assets/
+SRS/
+.kiro/
+.vscode/
+
+# Documentation
+*.md
+!README.md
+!DEPLOYMENT.md
+!API_DOCUMENTATION.md
+
+# Environment files
+.env
+.env.local
+
+# Test files
+*.test.js
+*.spec.js
+__tests__/
+
+# Development dependencies
+node_modules/
+
+# Build artifacts
+dist/
+coverage/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

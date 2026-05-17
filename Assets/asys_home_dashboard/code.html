@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASYS - Resident Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#eeeeee",
+              "on-error-container": "#410002",
+              "on-background": "#1a1c1c",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#ffffff",
+              "on-error": "#ffffff",
+              "surface-tint": "#5e5e5e",
+              "outline-variant": "#c6c6c6",
+              "surface": "#faf9f9",
+              "on-tertiary-fixed": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e8e8e8",
+              "on-surface-variant": "#474747",
+              "secondary-container": "#d4d4d4",
+              "tertiary": "#3a3c3c",
+              "primary-fixed-dim": "#474747",
+              "inverse-surface": "#2f3131",
+              "on-tertiary-container": "#ffffff",
+              "inverse-primary": "#c8c6c6",
+              "secondary": "#5d5e5f",
+              "on-secondary-container": "#1a1c1c",
+              "inverse-on-surface": "#f1f1f0",
+              "primary-fixed": "#5e5e5e",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#c6c6c6",
+              "on-primary-fixed-variant": "#e4e2e2",
+              "on-secondary-fixed": "#1a1c1c",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "on-secondary-fixed-variant": "#3a3c3c",
+              "on-primary-fixed": "#ffffff",
+              "surface-variant": "#e2e2e2",
+              "background": "#faf9f9",
+              "tertiary-fixed": "#5d5f5f",
+              "surface-container-low": "#f4f3f3",
+              "primary-container": "#3b3b3b",
+              "secondary-fixed-dim": "#ababab",
+              "surface-dim": "#dadada",
+              "surface-container-highest": "#e2e2e2",
+              "surface-bright": "#faf9f9",
+              "on-tertiary": "#e2e2e2",
+              "on-surface": "#1a1c1c",
+              "tertiary-fixed-dim": "#454747",
+              "primary": "#000000",
+              "on-primary": "#e4e2e2",
+              "outline": "#777777",
+              "tertiary-container": "#737575"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #faf9f9;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-50 font-sans text-sm tracking-tight w-full border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center h-16 px-8 w-full fixed top-0 z-50">
+<div class="text-xl font-black tracking-tighter text-neutral-900 dark:text-white uppercase">ASYS</div>
+<div class="flex items-center gap-6">
+<button class="relative p-2 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-neutral-100 dark:border-neutral-800">
+<div class="text-right hidden sm:block">
+<div class="font-bold leading-none">Alexander Wright</div>
+<div class="text-xs text-on-surface-variant">Unit 402-B</div>
+</div>
+<span class="material-symbols-outlined text-3xl" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50 font-sans text-sm font-medium h-screen w-64 border-r border-neutral-100 dark:border-neutral-800 fixed left-0 top-0 flex flex-col pt-20 pb-8 px-4 z-40 transition-all duration-300">
+<div class="mb-8 px-2">
+<h2 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">Resident Portal</h2>
+<p class="text-[10px] text-on-surface-variant/60">Site Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-sm transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Payments
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="engineering">engineering</span>
+                Maintenance
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+                Reservations
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+                Parking
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+                Announcements
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                Chat
+            </a>
+</nav>
+<div class="pt-6 border-t border-neutral-100 dark:border-neutral-800 space-y-1">
+<button class="w-full bg-primary text-on-primary py-3 mb-4 font-bold tracking-tight hover:opacity-90 transition-opacity">
+                New Request
+            </button>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Support
+            </a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="ml-64 pt-16 min-h-screen">
+<!-- Breadcrumb Rail -->
+<div class="h-10 bg-surface-dim border-b border-outline-variant/20 px-8 flex items-center text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+            Home / Dashboard / Overview
+        </div>
+<div class="p-8 max-w-7xl mx-auto space-y-10">
+<!-- Hero Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl font-black tracking-tighter mb-2">Welcome back, Alexander.</h1>
+<p class="text-on-surface-variant font-medium">Your building status is clear with <span class="text-primary underline">2 pending items</span>.</p>
+</div>
+<div class="flex gap-2">
+<button class="px-6 py-2.5 bg-primary text-on-primary font-bold text-sm tracking-tight">Pay Now</button>
+<button class="px-6 py-2.5 bg-secondary-container text-on-secondary-container font-bold text-sm tracking-tight">Make Reservation</button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Reminder Section (Priority 1) -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-surface-container-lowest p-6 shadow-sm border border-neutral-100/50">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-lg font-bold tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="priority_high">priority_high</span>
+                                Critical Reminders
+                            </h2>
+<span class="text-[10px] font-bold uppercase bg-surface-container px-2 py-1">Action Required</span>
+</div>
+<div class="space-y-4">
+<!-- Unpaid Dues -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<div class="font-bold text-sm">Monthly Maintenance Fee</div>
+<div class="text-xs text-on-surface-variant">Due in 2 days • May 2024</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-black text-lg">$1,240.00</div>
+<button class="text-[10px] font-bold uppercase underline hover:text-on-surface-variant">Details</button>
+</div>
+</div>
+<!-- Reservation Reminder -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="pool">pool</span>
+</div>
+<div>
+<div class="font-bold text-sm">Rooftop Pool Deck</div>
+<div class="text-xs text-on-surface-variant">Tomorrow, 14:00 - 16:00 • 4 Guests</div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-bold px-2 py-1 bg-white border border-outline-variant/30">CONFIRMED</div>
+<button class="text-[10px] font-bold uppercase underline hover:text-on-surface-variant mt-1">Manage</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Completed Requests with Rating -->
+<div class="bg-surface-container-lowest p-6 shadow-sm">
+<h2 class="text-lg font-bold tracking-tight mb-8">Recently Completed</h2>
+<div class="space-y-6">
+<div class="group border-b border-neutral-50 pb-6 last:border-0 last:pb-0">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="font-bold">Plumbing - Kitchen Leak</div>
+<div class="text-xs text-on-surface-variant">Ticket #MAINT-8821 • Completed Yesterday</div>
+</div>
+<span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1">RESOLVED</span>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Rate service:</span>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-primary" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm cursor-pointer text-outline-variant" data-icon="star">star</span>
+</div>
+</div>
+</div>
+<div class="group border-b border-neutral-50 pb-6 last:border-0 last:pb-0">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="font-bold">Guest Parking Access</div>
+<div class="text-xs text-on-surface-variant">Ticket #PARK-1029 • Completed May 12</div>
+</div>
+<span class="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-1">RESOLVED</span>
+</div>
+<div class="flex items-center gap-4 mt-4">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Feedback provided:</span>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-sm" data-icon="star" data-weight="fill">star</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Sidebar Modules -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Activity Feed -->
+<div class="bg-surface-container-low p-6">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xs font-black uppercase tracking-widest">Activity Feed</h2>
+<span class="material-symbols-outlined text-lg" data-icon="history">history</span>
+</div>
+<div class="space-y-8 relative before:absolute before:left-2.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-outline-variant/30">
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-5 h-5 bg-primary rounded-full flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="material-symbols-outlined text-[10px] text-white" data-icon="campaign">campaign</span>
+</div>
+<div class="text-xs font-bold">Building Maintenance</div>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Elevator 2 will be out of service for routine inspection on Friday morning.</p>
+<div class="text-[10px] text-on-surface-variant/50 mt-2">2 hours ago</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-5 h-5 bg-surface-container-highest rounded-full flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="material-symbols-outlined text-[10px]" data-icon="local_shipping">local_shipping</span>
+</div>
+<div class="text-xs font-bold">Package Delivered</div>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">A large parcel for Unit 402-B has been logged at the front desk locker.</p>
+<div class="text-[10px] text-on-surface-variant/50 mt-2">5 hours ago</div>
+</div>
+<div class="relative pl-8">
+<div class="absolute left-0 top-1.5 w-5 h-5 bg-surface-container-highest rounded-full flex items-center justify-center ring-4 ring-surface-container-low">
+<span class="material-symbols-outlined text-[10px]" data-icon="security">security</span>
+</div>
+<div class="text-xs font-bold">Security Update</div>
+<p class="text-xs text-on-surface-variant mt-1 leading-relaxed">System software update completed for building-wide access control panels.</p>
+<div class="text-[10px] text-on-surface-variant/50 mt-2">Yesterday</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Panel -->
+<div class="bg-primary p-6 text-on-primary">
+<h2 class="text-xs font-black uppercase tracking-widest mb-6 opacity-80">Quick Actions</h2>
+<div class="grid grid-cols-1 gap-3">
+<button class="w-full flex items-center gap-3 p-3 bg-white/10 hover:bg-white/20 transition-colors text-left group">
+<span class="material-symbols-outlined text-lg" data-icon="add_box">add_box</span>
+<span class="text-sm font-bold">New Maintenance</span>
+<span class="material-symbols-outlined ml-auto text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 bg-white/10 hover:bg-white/20 transition-colors text-left group">
+<span class="material-symbols-outlined text-lg" data-icon="directions_car">directions_car</span>
+<span class="text-sm font-bold">Register Guest Vehicle</span>
+<span class="material-symbols-outlined ml-auto text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</button>
+<button class="w-full flex items-center gap-3 p-3 bg-white/10 hover:bg-white/20 transition-colors text-left group">
+<span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
+<span class="text-sm font-bold">Amenity Portal</span>
+<span class="material-symbols-outlined ml-auto text-sm opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="pt-10 border-t border-outline-variant/10 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/50">
+<div>© 2024 ASYS Site Management System</div>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Terms</a>
+<a class="hover:text-primary" href="#">Privacy</a>
+<a class="hover:text-primary" href="#">System Status</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- FAB (Suppressed on Dashboard per instructions, but placeholder logic if needed) -->
+<!-- Suppressed: FAB only for specific contexts. Dashboard uses Grid buttons instead. -->
+</body></html>

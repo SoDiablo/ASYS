@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASYS - Payments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#eeeeee",
+            "on-error-container": "#410002",
+            "on-background": "#1a1c1c",
+            "on-secondary": "#ffffff",
+            "on-primary-container": "#ffffff",
+            "on-error": "#ffffff",
+            "surface-tint": "#5e5e5e",
+            "outline-variant": "#c6c6c6",
+            "surface": "#faf9f9",
+            "on-tertiary-fixed": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#e8e8e8",
+            "on-surface-variant": "#474747",
+            "secondary-container": "#d4d4d4",
+            "tertiary": "#3a3c3c",
+            "primary-fixed-dim": "#474747",
+            "inverse-surface": "#2f3131",
+            "on-tertiary-container": "#ffffff",
+            "inverse-primary": "#c8c6c6",
+            "secondary": "#5d5e5f",
+            "on-secondary-container": "#1a1c1c",
+            "inverse-on-surface": "#f1f1f0",
+            "primary-fixed": "#5e5e5e",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed": "#c6c6c6",
+            "on-primary-fixed-variant": "#e4e2e2",
+            "on-secondary-fixed": "#1a1c1c",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#e2e2e2",
+            "on-secondary-fixed-variant": "#3a3c3c",
+            "on-primary-fixed": "#ffffff",
+            "surface-variant": "#e2e2e2",
+            "background": "#faf9f9",
+            "tertiary-fixed": "#5d5f5f",
+            "surface-container-low": "#f4f3f3",
+            "primary-container": "#3b3b3b",
+            "secondary-fixed-dim": "#ababab",
+            "surface-dim": "#dadada",
+            "surface-container-highest": "#e2e2e2",
+            "surface-bright": "#faf9f9",
+            "on-tertiary": "#e2e2e2",
+            "on-surface": "#1a1c1c",
+            "tertiary-fixed-dim": "#454747",
+            "primary": "#000000",
+            "on-primary": "#e4e2e2",
+            "outline": "#777777",
+            "tertiary-container": "#737575"
+          },
+          fontFamily: {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<header class="flex justify-between items-center h-16 px-8 w-full static bg-white dark:bg-neutral-900 border-b border-neutral-100 dark:border-neutral-800 z-50">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black tracking-tighter text-neutral-900 dark:text-white">ASYS</span>
+<div class="h-6 w-px bg-neutral-200 dark:bg-neutral-700 mx-2"></div>
+<span class="font-sans text-sm tracking-tight text-neutral-500">Payments &amp; Billing</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-neutral-500 cursor-pointer hover:text-neutral-900 transition-colors" data-icon="notifications">notifications</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="material-symbols-outlined text-neutral-900" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 flex flex-col pt-20 pb-8 px-4 z-40 h-screen w-64 border-r border-neutral-100 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 transition-all duration-300">
+<div class="mb-8 px-2">
+<h2 class="font-sans text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">Resident Portal</h2>
+<p class="font-sans text-sm font-medium text-neutral-900">Site Management</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+          Dashboard
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-sm font-sans text-sm font-medium transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+          Payments
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="engineering">engineering</span>
+          Maintenance
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="event_seat">event_seat</span>
+          Reservations
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="local_parking">local_parking</span>
+          Parking
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="campaign">campaign</span>
+          Announcements
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white hover:translate-x-1 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+          Chat
+        </a>
+</nav>
+<div class="mt-auto space-y-1">
+<button class="w-full mb-6 bg-primary text-on-primary py-2 font-sans text-sm font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+          New Request
+        </button>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+          Settings
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 font-sans text-sm font-medium hover:text-neutral-900 dark:hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+          Support
+        </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 bg-surface">
+<!-- Breadcrumb Rail -->
+<div class="flex items-center gap-2 text-xs font-medium text-on-surface-variant mb-12 py-2 border-b border-surface-dim">
+<span>Portal</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Payments</span>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Column: Summary & Method Selection -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<!-- Debt Summary Card -->
+<section class="bg-surface-container-lowest p-8 shadow-[0_8px_24px_rgba(26,28,28,0.04)]">
+<h3 class="font-sans text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6">Current Debt Summary</h3>
+<div class="mb-8">
+<span class="text-[3.5rem] font-extrabold tracking-tighter leading-none">$2,450.00</span>
+<p class="text-sm text-on-surface-variant mt-2 font-medium">Due by Oct 15, 2023</p>
+</div>
+<div class="space-y-4 pt-6 border-t border-surface-container">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Maintenance Fee</span>
+<span class="font-bold">$1,200.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Parking Space B-12</span>
+<span class="font-bold">$250.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Utility Recovery</span>
+<span class="font-bold">$1,000.00</span>
+</div>
+</div>
+</section>
+<!-- Payment Method Selection -->
+<section class="bg-surface-container-low p-8">
+<h3 class="font-sans text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-6">Payment Method</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center p-4 border-2 border-primary bg-surface-container-lowest transition-all">
+<span class="material-symbols-outlined mb-2" data-icon="credit_card">credit_card</span>
+<span class="text-xs font-bold">Credit Card</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 border-2 border-transparent hover:border-outline-variant transition-all bg-surface-container-low">
+<span class="material-symbols-outlined mb-2" data-icon="account_balance">account_balance</span>
+<span class="text-xs font-bold text-on-surface-variant">Bank Transfer</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Card Form & History -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-12">
+<!-- Payment Form -->
+<section class="bg-surface-container-lowest p-10 shadow-[0_8px_24px_rgba(26,28,28,0.04)] relative">
+<h2 class="text-2xl font-black tracking-tight mb-8">Complete Payment</h2>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Cardholder Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-sm font-medium transition-all placeholder:text-surface-dim" placeholder="ALEXANDER RESIDENT" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Card Number</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-sm font-medium transition-all placeholder:text-surface-dim" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-1 space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Expiry Date</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-sm font-medium transition-all placeholder:text-surface-dim" placeholder="MM / YY" type="text"/>
+</div>
+<div class="col-span-1 space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">CVV</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-primary px-0 py-2 text-sm font-medium transition-all placeholder:text-surface-dim" placeholder="000" type="text"/>
+</div>
+<div class="col-span-1 flex items-end justify-end">
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-outline-variant" data-icon="payment">payment</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+</div>
+<div class="pt-8">
+<button class="group relative w-full overflow-hidden bg-primary text-on-primary py-4 font-bold tracking-widest text-xs uppercase flex items-center justify-center gap-3 hover:bg-primary-container transition-all duration-300">
+                  Confirm Transaction ($2,450.00)
+                  <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center mt-4 text-on-surface-variant font-medium tracking-tight">Secured by ASYS Architectural Core Protocol</p>
+</div>
+</form>
+</section>
+<!-- Payment History Table -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h3 class="font-sans text-xs font-bold uppercase tracking-widest text-on-surface-variant">Recent Payment History</h3>
+<button class="text-[10px] font-bold border-b border-primary hover:text-on-surface-variant hover:border-surface-dim transition-colors">EXPORT ALL</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-left border-b border-surface-container">
+<th class="pb-4 font-bold">Transaction ID</th>
+<th class="pb-4 font-bold">Date</th>
+<th class="pb-4 font-bold">Description</th>
+<th class="pb-4 font-bold">Amount</th>
+<th class="pb-4 font-bold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-6 text-sm font-medium">#TX-90821</td>
+<td class="py-6 text-sm text-on-surface-variant">Sep 15, 2023</td>
+<td class="py-6 text-sm">Monthly Maintenance + Parking</td>
+<td class="py-6 text-sm font-bold">$1,450.00</td>
+<td class="py-6 text-right">
+<button class="p-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-6 text-sm font-medium">#TX-89234</td>
+<td class="py-6 text-sm text-on-surface-variant">Aug 15, 2023</td>
+<td class="py-6 text-sm">Monthly Maintenance + Utility</td>
+<td class="py-6 text-sm font-bold">$2,200.00</td>
+<td class="py-6 text-right">
+<button class="p-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-6 text-sm font-medium">#TX-87110</td>
+<td class="py-6 text-sm text-on-surface-variant">Jul 15, 2023</td>
+<td class="py-6 text-sm">Monthly Maintenance</td>
+<td class="py-6 text-sm font-bold">$1,200.00</td>
+<td class="py-6 text-right">
+<button class="p-2 hover:bg-surface-container-highest transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+<!-- Decorative Overlay (Architectural Detail) -->
+<div class="fixed bottom-8 right-8 pointer-events-none opacity-10">
+<div class="text-[8rem] font-black tracking-tighter leading-none select-none">BILLING</div>
+</div>
+</body></html>

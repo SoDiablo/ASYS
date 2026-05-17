@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ASYS - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#1a1c1c",
+                        "background": "#faf9f9",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-low": "#f4f3f3",
+                        "secondary": "#5d5e5f",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffffff",
+                        "on-secondary-fixed-variant": "#3a3c3c",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "outline": "#777777",
+                        "surface-bright": "#faf9f9",
+                        "on-primary-fixed": "#ffffff",
+                        "on-primary-container": "#ffffff",
+                        "tertiary-container": "#737575",
+                        "on-tertiary": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#5e5e5e",
+                        "on-tertiary-fixed": "#ffffff",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface-dim": "#dadada",
+                        "primary-container": "#3b3b3b",
+                        "surface-variant": "#e2e2e2",
+                        "surface-tint": "#5e5e5e",
+                        "surface-container": "#eeeeee",
+                        "outline-variant": "#c6c6c6",
+                        "on-surface-variant": "#474747",
+                        "tertiary-fixed-dim": "#454747",
+                        "surface": "#faf9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed": "#c6c6c6",
+                        "inverse-primary": "#c8c6c6",
+                        "primary-fixed-dim": "#474747",
+                        "on-secondary-container": "#1a1c1c",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#3a3c3c",
+                        "on-primary": "#e4e2e2",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#d4d4d4",
+                        "inverse-surface": "#2f3131",
+                        "on-primary-fixed-variant": "#e4e2e2",
+                        "on-error-container": "#410002",
+                        "secondary-fixed-dim": "#ababab",
+                        "tertiary-fixed": "#5d5f5f",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000000",
+                        "on-background": "#1a1c1c"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f9; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .toggle-switch {
+            @apply w-10 h-5 rounded-full relative p-1 cursor-pointer transition-colors duration-200;
+        }
+        .toggle-dot {
+            @apply w-3 h-3 bg-white rounded-full absolute transition-all duration-200;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-neutral-100 dark:bg-neutral-950 flex flex-col gap-2 p-4 border-r border-neutral-200 dark:border-neutral-800 font-inter text-sm font-medium">
+<div class="mb-8 px-2 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">domain</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-neutral-900 dark:text-neutral-100 leading-none">ASYS Admin</h1>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Residential Mgmt</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">campaign</span>
+<span>Announcements</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Residents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span>Facilities</span>
+</a>
+<!-- Active State: Settings -->
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-900 dark:text-neutral-100 font-semibold bg-white dark:bg-neutral-800 rounded-lg transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span>Support</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant/20">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-sm font-bold text-xs uppercase tracking-wider mb-4">
+            Create New
+        </button>
+<a class="flex items-center gap-3 px-3 py-2 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Breadcrumb Rail -->
+<div class="h-10 bg-surface-dim border-b border-outline-variant/10 flex items-center px-8 text-[10px] font-medium tracking-widest text-on-surface-variant uppercase">
+<span>Admin</span>
+<span class="mx-2 text-outline-variant">/</span>
+<span class="text-primary font-bold">Settings</span>
+</div>
+<!-- Header -->
+<header class="px-8 py-10">
+<h2 class="text-4xl font-black tracking-tighter text-primary uppercase">Settings</h2>
+<p class="text-on-surface-variant mt-2 max-w-2xl">Manage your account preferences, notification triggers, and security protocols for the ASYS Residential Management system.</p>
+</header>
+<!-- Tabbed Navigation -->
+<div class="px-8 pb-32">
+<div class="flex gap-8 border-b border-outline-variant/20 mb-10 overflow-x-auto no-scrollbar">
+<button class="pb-4 text-sm font-bold border-b-2 border-primary text-primary whitespace-nowrap">Profile</button>
+<button class="pb-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Notifications</button>
+<button class="pb-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Security</button>
+<button class="pb-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Preferences</button>
+</div>
+<!-- Bento Layout Sections -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Profile Section -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 shadow-sm">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h3 class="text-xl font-bold tracking-tight mb-1">Personal Profile</h3>
+<p class="text-sm text-on-surface-variant">Update your public identity and contact details.</p>
+</div>
+<button class="text-[10px] font-bold uppercase tracking-widest text-primary border-b border-primary pb-0.5">Edit All</button>
+</div>
+<div class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/30">
+<span class="text-sm font-medium">Alexander Sterling</span>
+<span class="material-symbols-outlined text-sm text-outline-variant cursor-pointer">edit</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Email Address</label>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/30">
+<span class="text-sm font-medium">a.sterling@asys-mgmt.com</span>
+<span class="material-symbols-outlined text-sm text-outline-variant cursor-pointer">edit</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Phone Number</label>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/30">
+<span class="text-sm font-medium">+1 (555) 902-4412</span>
+<span class="material-symbols-outlined text-sm text-outline-variant cursor-pointer">edit</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Apartment Number</label>
+<div class="flex items-center justify-between py-2 border-b border-outline-variant/30">
+<span class="text-sm font-medium">Penthouse 402-B</span>
+<span class="material-symbols-outlined text-sm text-outline-variant cursor-pointer">edit</span>
+</div>
+</div>
+</div>
+<div class="pt-6">
+<div class="bg-surface-container-low p-6 flex items-center gap-6">
+<img alt="Professional Avatar" class="w-20 h-20 object-cover rounded-sm grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyoT-RDgZgOnnbiejZIIUnBV4W0I930-YOhiLmxudNp3nmvK2FGrV0DBLm9VJX9O33RyaSLQ9OYMFKri-_k5QUBb_YNgalWCKjnD5JdUZPw5Au0epP0pDH7w8I6empKHvTLxMRHZaEHHDsjx4ly4xH-rNBJVYaHWHB-XUi6-jquHpVXue8aXIyJGGjzo2zGP6Xe2s8okRCpDlixXkzfNiJI_1q5UxRBno2fLiJ4r85UxvAHV5EhPDk-6O_gKok5Mf38g9tSmiiM2g"/>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest mb-2">Profile Avatar</p>
+<div class="flex gap-3">
+<button class="bg-primary text-on-primary px-4 py-1.5 text-xs font-bold uppercase tracking-tighter">Upload New</button>
+<button class="text-xs font-bold text-error border border-error/20 px-4 py-1.5 uppercase tracking-tighter">Remove</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Sections: Security & Preferences -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Security -->
+<section class="bg-surface-container-low p-8">
+<h3 class="text-sm font-bold tracking-widest uppercase mb-6">Security</h3>
+<div class="space-y-6">
+<button class="w-full bg-primary text-on-primary py-3 text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">lock_reset</span>
+                            Change Password
+                        </button>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/30">
+<div>
+<p class="text-sm font-bold">Two-factor (2FA)</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Secure your login with SMS</p>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative p-1 cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full absolute right-1"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Preferences -->
+<section class="bg-surface-container-lowest p-8 border border-surface-container-high shadow-sm">
+<h3 class="text-sm font-bold tracking-widest uppercase mb-6">Preferences</h3>
+<div class="space-y-6">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Interface Language</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-low border-none text-sm font-medium py-2.5 px-3 pr-10 focus:ring-0">
+<option>English (United States)</option>
+<option>Spanish (ES)</option>
+<option>French (FR)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-sm pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<p class="text-sm font-bold">Dark Mode</p>
+<div class="w-10 h-5 bg-surface-variant rounded-full relative p-1 cursor-pointer">
+<div class="w-3 h-3 bg-white shadow-sm rounded-full absolute left-1"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Notification Settings Section -->
+<section class="col-span-12 bg-surface-container-low p-8 shadow-sm">
+<div class="mb-10">
+<h3 class="text-xl font-bold tracking-tight mb-1">Notification Settings</h3>
+<p class="text-sm text-on-surface-variant">Configure how you receive critical system updates across all categories.</p>
+</div>
+<div class="max-w-4xl space-y-6">
+<!-- Email Alerts -->
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-2xl">mail</span>
+<div>
+<p class="text-sm font-bold">Email Alerts</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Summary of payments, maintenance, and announcements</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative p-1 cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full absolute right-1"></div>
+</div>
+</div>
+<!-- SMS Notifications -->
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-2xl">sms</span>
+<div>
+<p class="text-sm font-bold">SMS Notifications</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Urgent maintenance and security alerts</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-neutral-300 rounded-full relative p-1 cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full absolute left-1"></div>
+</div>
+</div>
+<!-- Push Notifications -->
+<div class="flex items-center justify-between py-4">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-2xl">notifications_active</span>
+<div>
+<p class="text-sm font-bold">Push (Mobile App)</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Real-time updates directly to your device</p>
+</div>
+</div>
+<div class="w-10 h-5 bg-primary rounded-full relative p-1 cursor-pointer">
+<div class="w-3 h-3 bg-white rounded-full absolute right-1"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Sticky Footer Action Bar -->
+<footer class="fixed bottom-0 left-64 right-0 h-20 bg-surface-container-lowest/90 backdrop-blur-md flex items-center justify-end px-12 gap-6 border-t border-outline-variant/20 z-50">
+<button class="text-xs font-bold text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">Discard Changes</button>
+<button class="bg-primary text-on-primary text-xs font-bold uppercase tracking-[0.2em] px-10 py-3.5 shadow-xl hover:bg-neutral-800 transition-all">
+            Save Settings
+        </button>
+</footer>
+</main>
+</body></html>
