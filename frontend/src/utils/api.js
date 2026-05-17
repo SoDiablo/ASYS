@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Hardcoded for production - change if needed
-const API_BASE_URL = window.location.origin + '/api';
+const API_BASE_URL = 'https://asys.onrender.com/api';
 
 console.log('🔗 API Base URL:', API_BASE_URL);
 
